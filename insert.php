@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include('db.php');
 
      $name=$_POST['name'];
@@ -9,7 +9,7 @@ include('db.php');
      $description=$_POST['description'];
      $date=date('Y-m-d');
 
-     if(!empty($name)&&!empty($address)&&!(email)){
+     if(!empty($name)&&!empty($address)&&!empty(email)){
 
      
 
@@ -18,6 +18,7 @@ include('db.php');
      $result=mysqli_query($db,$sql);
      if($result==true){
         header('location:index.php');
+        $_SESSION['message']='A new client is successfully added';
      }
    }else{
       echo"must be add name,email,address of client".'<a href="index.php">Go Back</a>';

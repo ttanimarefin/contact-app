@@ -1,9 +1,17 @@
 <?php
+
+session_start();
 include('header.php');
 include('db.php');
 ?>
 
 <div class="container">
+  <?php
+    if(isset($_SESSION['message'])){
+      echo '<div class="alert alert-success">'.$_SESSION['message'].'</div>';
+      unset($_SESSION['message']);
+       }  
+  ?>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
