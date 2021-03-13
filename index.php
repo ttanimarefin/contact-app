@@ -1,8 +1,6 @@
 <?php
 include('header.php');
 include('db.php');
-include('insert.php')
-
 ?>
 
 <div class="container">
