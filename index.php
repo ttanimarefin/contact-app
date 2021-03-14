@@ -1,64 +1,56 @@
 <?php
-
-session_start();
 include('header.php');
 include('db.php');
+
 ?>
 
-<div class="container">
-  <?php
-    if(isset($_SESSION['message'])){
-      echo '<div class="alert alert-success">'.$_SESSION['message'].'</div>';
-      unset($_SESSION['message']);
-       }  
-  ?>
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    Add new client 
-                </div>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+
+<?php
+
+$sql="SELECT * FROM clients";
+$results=mysqli_query($db,$sql);
+
+?>
+
+
+ <div class="container">
+ 
+ <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($results as $result){
+         ?>
+         <tr>
+            <td><?php echo $result['name'];?></td>
+            <td><?php echo $result['email'];?></td>
+            <td><?php echo $result['phone'];?></td>
+            <td><?php echo $result['address'];?></td>
+            <td><?php echo $result['description'];?></td>
+            <td><?php echo $result['created'];?></td>
             
-             <div class="card-body">
-                <form action="insert.php" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control" >
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" class="form-control" >
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="mobile" name="phone" class="form-control" >
-                </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" name="address" class="form-control" >
-                </div>
-                <div class="form-group">
-                    <label for="Description">Description</label>
-                    <textarea name="description" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="submit" name="btnsubmit" class="btn btn-success submitbtn">
-                </div>
-             </div>
-             </form>
-            </div>
-        </div>
-    </div>
-
+         </tr>
+       <?php }?>  
+    </tbody>
+</table>
 </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+   $(document).ready( function () {
+    $('#table_id').DataTable();
+} );
 
-
-<style type="text/css">
-   .card{
-            margin-top:10px;
-
-      }
-    .submitbtn{
-        margin-top:7px;
-    }
-</style>
+</script>
