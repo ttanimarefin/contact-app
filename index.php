@@ -4,9 +4,7 @@ include('db.php');
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-  
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
 
 
 <?php
@@ -15,6 +13,20 @@ $sql="SELECT * FROM clients";
 $results=mysqli_query($db,$sql);
 
 ?>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Datatable</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
+</head>
+<body>
 
 
  <div class="container">
@@ -44,13 +56,16 @@ $results=mysqli_query($db,$sql);
          </tr>
        <?php }?>  
     </tbody>
-</table>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript">
+ </table>
+ </div>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script type="text/javascript" src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+ <script type>
    $(document).ready( function () {
     $('#table_id').DataTable();
-} );
+ } );
 
-</script>
+ </script>
+
+</body>
+</html>
