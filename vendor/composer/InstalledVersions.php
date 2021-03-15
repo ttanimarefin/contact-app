@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '8a99fb71565130e240916727f99440d51f729f24',
+    'reference' => 'f05fe60b02755aa57729f2af02f184ef9fa982ae',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '8a99fb71565130e240916727f99440d51f729f24',
+      'reference' => 'f05fe60b02755aa57729f2af02f184ef9fa982ae',
     ),
     'fakerphp/faker' => 
     array (
