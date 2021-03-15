@@ -10,7 +10,27 @@
 
 <!-- As a heading -->
 <nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Navbar</span>
-  </div>
+  <a class="navbar-brand " href="index.php">Contact App</a>
+  <a class="navbar-brand" href="index.php">Add Client</a>
 </nav>
+
+
+<style type="text/css">
+    .navbar{
+      background-color:#217cd6!important;
+
+    }
+    .navbar .navbar-brand{
+      color:#fff;
+      <margin-left:10px;
+    }
+    .navbar .navbar-brand:hover{
+      color:#fff;
+    }
+    .container{
+      margin-top:25px;
+    }
+    
+
+
+</style>

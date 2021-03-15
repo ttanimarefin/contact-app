@@ -30,6 +30,10 @@ $results=mysqli_query($db,$sql);
 
 
  <div class="container">
+    <h2 class="text-center mb-3 mt-4"> Your Client Information</h2>
+   <div class="total-client">
+        Total Clients:<?php echo mysqli_num_rows($results);?>     
+   </div>
  
  <table id="table_id" class="display">
     <thead>
@@ -40,6 +44,8 @@ $results=mysqli_query($db,$sql);
             <th>Address</th>
             <th>Description</th>
             <th>Date</th>
+            <th>Action</th>
+
         </tr>
     </thead>
     <tbody>
@@ -52,6 +58,11 @@ $results=mysqli_query($db,$sql);
             <td><?php echo $result['address'];?></td>
             <td><?php echo $result['description'];?></td>
             <td><?php echo $result['created'];?></td>
+            <td>
+                 <button class="btn btn-success btn-sm">view</button>
+                 <button class="btn btn-primary btn-sm">edit</button>
+                 <button class="btn btn-danger btn-sm">delete</button>
+            </td>
             
          </tr>
        <?php }?>  
@@ -67,5 +78,15 @@ $results=mysqli_query($db,$sql);
 
  </script>
 
+
+
+ <style type="text/css">
+       .total-client {
+              position: relative;
+              left: 1150px;
+              top: -18px;
+              color: indianred;
+                 }
+ </style> 
 </body>
 </html>
