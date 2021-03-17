@@ -11,7 +11,7 @@
 <!-- As a heading -->
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand " href="index.php">Contact App</a>
-  <a class="navbar-brand" href="index.php">Add Client</a>
+  <a class="navbar-brand" href="add.php">Add Client</a>
 </nav>
 
 

@@ -10,7 +10,7 @@ for($i=0;$i<=100;$i++){
        mysqli_query($db,$sql);
 }
 }
-echo $db->error;
+
 ?>
 
 <form action="faker.php" method="POST">
