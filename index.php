@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include('header.php');
 include('db.php');
 $sql="SELECT * FROM clients";
@@ -19,7 +19,7 @@ $results=mysqli_query($db,$sql);
 
 <div class="container">
  <?php
-     
+    
     if(isset($_SESSION['message'])){
         echo'<div class="alert alert-success">'.$_SESSION['message'].'</div>';
         unset($_SESSION['message']);
@@ -97,7 +97,7 @@ $results=mysqli_query($db,$sql);
          <div class="form-group">
             <label>Description</label>
             <textarea name="description" class="form-control">
-                <?php echo $result['description']; ?>
+            <?php echo $result['description']; ?>
             </textarea>
         </div>
 
@@ -125,9 +125,7 @@ $results=mysqli_query($db,$sql);
  <script type="text/javascript">
    $(document).ready( function () {
     $('#table_id').DataTable();
-    $('#Modal').modal('show');
  } );
-
  </script>
 
 <style>
