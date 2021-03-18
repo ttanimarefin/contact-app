@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include('header.php');
 include('db.php');
 $sql="SELECT * FROM clients";
@@ -17,8 +17,9 @@ $results=mysqli_query($db,$sql);
 <body>
 
 
- <div class="container">
+<div class="container">
  <?php
+     
     if(isset($_SESSION['message'])){
         echo'<div class="alert alert-success">'.$_SESSION['message'].'</div>';
         unset($_SESSION['message']);
@@ -64,13 +65,14 @@ $results=mysqli_query($db,$sql);
 <!-- Modal -->
 <div class="modal fade" id="exampleModal_<?php echo $result['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+   <form  action="update.php" method="POST">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">ID:<?php echo $result['id']; ?> </h5>
+        <h5 class="modal-title" id="exampleModalLabel">Client ID:<?php echo $result['id']; ?> </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form  action="update.php" method="POST">
-      <div class="modal-body">
+      
+    <div class="modal-body">
       <div class="form-group">
             <input type="hidden" name="id" value="<?php echo $result['id']; ?>">
             <label>Name</label>
@@ -101,14 +103,17 @@ $results=mysqli_query($db,$sql);
 
       
       </div>
-      </form>
+      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="btnsubmit"  id="update" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
+  </form>
 </div>
+
+
 <?php }?> 
  </tbody>
  </table>
