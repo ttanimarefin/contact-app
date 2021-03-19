@@ -2,7 +2,7 @@
 include('db.php');
 include('header.php');
 
-$id = (isset($_POST['id']) ? $_GET['id'] : '');
+$id = (isset($_POST['id']) ? $_POST['id'] : '');
 $sql ="SELECT * FROM clients WHERE id = '$id'";
 $results = mysqli_query($db,$sql);
 var_dump($results);
