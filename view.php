@@ -2,10 +2,9 @@
 include('db.php');
 include('header.php');
 
-$id = (isset($_POST['id']) ? $_POST['id'] : '');
+$id = $_GET['id'];
 $sql ="SELECT * FROM clients WHERE id = '$id'";
 $results = mysqli_query($db,$sql);
-var_dump($results);
 foreach($results as $result){  
 
 ?>
@@ -14,7 +13,7 @@ foreach($results as $result){
 	<div class="row">
 		<div class="col-md-6">
 			<h1>Send email</h1>
-		  <form action="view.php?id=<?php echo $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
+		<form action="view.php?id=<?php echo $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
 
 			<div class="form-group">
 				<label for="">Subject</label>
@@ -29,13 +28,12 @@ foreach($results as $result){
 				<input type="file" name="invoice" class="form-control" required="">
 			</div>
 			<div class="form-group">
-				<button type="submit" name="btnsubmit" class="btn btn-outline-success">Send e-mail</button>
+				<button type="submit" name="btnSubmit" class="btn btn-outline-success">Send e-mail</button>
 			</div>
-		    
-	        </form>
 		</div>
+	</form>
 
-	    <div class="col-md-6 float-right">
+		<div class="col-md-6 float-right">
 			<div class="card">
 				<div class="card-header">
 					Client Details
@@ -49,11 +47,5 @@ foreach($results as $result){
 				</div>
 			</div>
 		</div>
-    </div>
-</div>
- <?php
-  ?>
-
-
 
 <?php }?>

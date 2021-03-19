@@ -54,7 +54,7 @@ $results=mysqli_query($db,$sql);
             <td><?php echo $result['description'];?></td>
             <td><?php echo $result['created'];?></td>
             <td>
-                 <button class="btn btn-success btn-sm">view</button>
+                 <a href="view.php?id=<?php echo $result['id'];?>" class="btn btn-success btn-sm">view</a>
                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<?php echo $result['id']; ?>">
                      Edit
                  </button>
